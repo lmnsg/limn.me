@@ -1,0 +1,774 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Trans," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="本文翻译于webpack-howto
+引导目标这是一份关于如何使用webpack来把事情做好的菜单,它包含了所有我们在Instagram已经使用了的和没有用过的内容。我的建议：把本文作为你开始使用webpack的资料,下一步可以去关注官方的文档说明。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack-howto-cn">
+<meta property="og:url" content="http://lmnsg.github.io/2015/webpack-howTo-cn/index.html">
+<meta property="og:site_name" content="学与见">
+<meta property="og:description" content="本文翻译于webpack-howto
+引导目标这是一份关于如何使用webpack来把事情做好的菜单,它包含了所有我们在Instagram已经使用了的和没有用过的内容。我的建议：把本文作为你开始使用webpack的资料,下一步可以去关注官方的文档说明。">
+<meta property="og:updated_time" content="2015-12-14T15:53:30.814Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack-howto-cn">
+<meta name="twitter:description" content="本文翻译于webpack-howto
+引导目标这是一份关于如何使用webpack来把事情做好的菜单,它包含了所有我们在Instagram已经使用了的和没有用过的内容。我的建议：把本文作为你开始使用webpack的资料,下一步可以去关注官方的文档说明。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'always',
+    motion: true
+  };
+</script>
+
+  <title> webpack-howto-cn | 学与见 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?bdf87365ce8ce63548f35afcf4c08b43";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">学与见</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学而时习之，不亦说乎</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                webpack-howto-cn
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-12-09T17:38:33+08:00" content="2015-12-09">
+              2015-12-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Trans/" itemprop="url" rel="index">
+                    <span itemprop="name">Trans</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/webpack-howTo-cn/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/webpack-howTo-cn/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>本文翻译于<a href="https://github.com/petehunt/webpack-howto" target="_blank" rel="external">webpack-howto</a></p>
+<h3 id="引导目标">引导目标</h3><p>这是一份关于如何使用<code>webpack</code>来把事情做好的菜单,它包含了所有我们在<code>Instagram</code>已经使用了的和没有用过的内容。<br>我的建议：把本文作为你开始使用<code>webpack</code>的资料,下一步可以去关注官方的文档说明。</p>
+<a id="more"></a>
+<h3 id="面向人群">面向人群</h3><ul>
+<li>了解类似于<code>browserify</code>,<code>RequireJs</code>的工具</li>
+<li>理解:<ul>
+<li>拆分打包</li>
+<li>异步加载</li>
+<li>静态资源打包(css,images)</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-为什么选择webpack?">1.为什么选择<code>webpack</code>?</h3><ul>
+<li>它像<code>browserify</code>,但它能把你的应用拆分成多个文件。如果你有多个页面在一个单页面应用里,用户只需要下载当前页面的代码。如果他们跳转到其它页面,不需要重新下载公用的代码。</li>
+<li>它通常用来替换掉<code>grunt</code>或者<code>gulp</code>,因为它可以完成构建和打包CSS，预处理CSS(less,sass),编译其它的js(coffee,es2015…)和图片等…</li>
+</ul>
+<h3 id="2-对于Browserify用户">2.对于<code>Browserify</code>用户</h3><p>下面是等价的:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">browserify main.js &gt; bundle.js</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack main.js bundle.js</span><br></pre></td></tr></table></figure>
+<p>不过，<code>webpack</code>比<code>Browserify</code>更强大。所以一般你会想要创建一个<code>webpack.config.js</code>来让工作更有序:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>只是js，你可以随意放你的代码到这。</p>
+<h3 id="3-如何使用webpack">3.如何使用<code>webpack</code></h3><p>进入到包含<code>webpack.config.js</code>文件的目录，然后在终端里运行:</p>
+<ul>
+<li><code>webpack</code> 以开发模式构建一次</li>
+<li><code>webpack</code> -p 以生产模式构建一次(压缩过的)</li>
+<li><code>webpack</code> –watch 监听新增或修改的并持续以开发模式构建(fast!)</li>
+<li><code>webpack</code> -d (包含 source maps)</li>
+</ul>
+<h3 id="4-编译其它js">4.编译其它js</h3><p><code>webpack</code>类似于<code>browserify transforms</code>和<code>RequireJS plugins</code>的是<strong>loader</strong>. 下面是关于如何指示<code>webpack</code>去加载<br><code>CoffeeScript</code> 和 <code>Facebook JSX+ES6</code>(你必须要先 <em>npm install babel-loader coffee-loader</em>):</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    loaders: [</span><br><span class="line">      &#123; test: <span class="regexp">/\.coffee$/</span>, loader: <span class="string">'coffee-loader'</span> &#125;,</span><br><span class="line">      &#123; test: <span class="regexp">/\.js$/</span>, loader: <span class="string">'babel-loader'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>要启用加载文件时不需要文件后缀的功能，你必须添加一个<code>resolve.extensions</code>参数告诉<code>webpack</code>去索引哪些文件：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    loaders: [</span><br><span class="line">      &#123; test: <span class="regexp">/\.coffee$/</span>, loader: <span class="string">'coffee-loader'</span> &#125;,</span><br><span class="line">      &#123; test: <span class="regexp">/\.js$/</span>, loader: <span class="string">'babel-loader'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  resolve: &#123;</span><br><span class="line">    <span class="comment">// you can now require('file') instead of require('file.coffee')</span></span><br><span class="line">    extensions: [<span class="string">''</span>, <span class="string">'.js'</span>, <span class="string">'.json'</span>, <span class="string">'.coffee'</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-样式表和图片">5.样式表和图片</h3><p>首先更新你的代码去<code>require()</code>你的静态资源：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'./bootstrap.css'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'./myapp.less'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> img = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>);</span><br><span class="line">img.src = <span class="built_in">require</span>(<span class="string">'./glyph.png'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>当你引用 CSS (或 Less…),webpack 内联这个 CSS 作为一个字符块在这个JS包里，而且<code>require()</code>会插入一个<code>&lt;style&gt;</code>标签到页面里，当你引用图片，webpack 会内联这个图片的URL到这个包里并返回它从<code>require()</code>.</p>
+<p>不过你需要告诉webpack去做这件事:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: <span class="string">'./build'</span>, <span class="comment">// This is where images AND js will go</span></span><br><span class="line">    publicPath: <span class="string">'http://mycdn.com/'</span>, <span class="comment">// This is used to generate URLs to e.g. images</span></span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    loaders: [</span><br><span class="line">      &#123; test: <span class="regexp">/\.less$/</span>, loader: <span class="string">'style-loader!css-loader!less-loader'</span> &#125;, <span class="comment">// use ! to chain loaders</span></span><br><span class="line">      &#123; test: <span class="regexp">/\.css$/</span>, loader: <span class="string">'style-loader!css-loader'</span> &#125;,</span><br><span class="line">      &#123;test: <span class="regexp">/\.(png|jpg)$/</span>, loader: <span class="string">'url-loader?limit=8192'</span>&#125; <span class="comment">// inline base64 URLs for &lt;=8k images, direct URLs for the rest</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="6-特性标记">6.特性标记</h3><p>我们有只想给我们的开发环境或者我们的内部测试服务器用的入口代码(像我们的员工正在测试未发布的功能特性)。在你的代码里，指有魔力的全局变量：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (__DEV__) &#123;</span><br><span class="line">  <span class="built_in">console</span>.warn(<span class="string">'Extra logging'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">if</span> (__PRERELEASE__) &#123;</span><br><span class="line">  showSecretFeature();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后告诉webpack这些有魔力的的全局变量:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// definePlugin 使用原生的字符串，所以如果你想，你可以更改它们.</span></span><br><span class="line"><span class="keyword">var</span> definePlugin = <span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">  __DEV__: <span class="built_in">JSON</span>.stringify(<span class="built_in">JSON</span>.parse(process.env.BUILD_DEV || <span class="string">'true'</span>)),</span><br><span class="line">  __PRERELEASE__: <span class="built_in">JSON</span>.stringify(<span class="built_in">JSON</span>.parse(process.env.BUILD_PRERELEASE || <span class="string">'false'</span>))</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [definePlugin]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>接着你可以在控制台里使用<code>BUILD_DEV=1 BUILD_PRERELEASE=1 webpack</code>构建。注意，因为<code>webpack -p</code>会消除不必要的代码，所有包裹在其中一块里的代码都会被清除，所以你不用担心会泄漏秘密功能或者字符。</p>
+<h3 id="7-多个入口">7.多个入口</h3><p>加入你有一个 profile 页面，一个 feed 页面，你不想让用户下载 feed 页面的代码，加入他们只想看 profile, 那么，创建多个包。就是说每个页面创建一个 “main module”(入口):<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    Profile: <span class="string">'./profile.js'</span>,</span><br><span class="line">    Feed: <span class="string">'./feed.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: <span class="string">'build'</span>,</span><br><span class="line">    filename: <span class="string">'[name].js'</span> <span class="comment">// Template based on keys in entry above</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>对于 profile，在你的页面里插入<code>&lt;script src=&quot;build/Profile.js&quot;&gt;&lt;/script&gt;</code>, feed 页面同样。</p>
+<h3 id="8-优化公共代码">8.优化公共代码</h3><p>Feed 和 Profile 有很多共同的代码，webpack 可以计算出那些是他们共用的然后穿件一个包，可以在页面之间缓存：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> commonsPlugin =</span><br><span class="line">  <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">'common.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    Profile: <span class="string">'./profile.js'</span>,</span><br><span class="line">    Feed: <span class="string">'./feed.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: <span class="string">'build'</span>,</span><br><span class="line">    filename: <span class="string">'[name].js'</span> <span class="comment">// Template based on keys in entry above</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [commonsPlugin]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>添加<code>&lt;script src=&quot;build/common.js&quot;&gt;&lt;/script&gt;</code>在你前面步骤里添加的script标签前,享受免费的高速缓存吧。</p>
+<h3 id="9-异步加载">9.异步加载</h3><p><code>CommonJs</code> 是同步加载的，但是 <code>webpack</code> 支持异步的方式去加载依赖。当你想要在所有的页面上使用路由，但是你又不想先下载直到你真的需要用它们的时候是十分好用的。</p>
+<p>指定你想要在哪里异步加载的分割点. 举个栗子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.location.pathname === <span class="string">'/feed'</span>) &#123;</span><br><span class="line">  showLoadingState();</span><br><span class="line">  <span class="built_in">require</span>.ensure([], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// this syntax is weird but it works</span></span><br><span class="line">    hideLoadingState();</span><br><span class="line">    <span class="built_in">require</span>(<span class="string">'./feed'</span>).show(); <span class="comment">// when this function is called, the module is guaranteed to be synchronously available.</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.location.pathname === <span class="string">'/profile'</span>) &#123;</span><br><span class="line">  showLoadingState();</span><br><span class="line">  <span class="built_in">require</span>.ensure([], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    hideLoadingState();</span><br><span class="line">    <span class="built_in">require</span>(<span class="string">'./profile'</span>).show();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>webpack 会休息并生成一个额外的块文件给你。<br>当你加载并插入到一个脚本标签里时，webpack 会假定那些文件在你的root目录里。你可以使用<code>output.publicPath</code>去配置它：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line">output: &#123;</span><br><span class="line">    path: <span class="string">"/home/proj/public/assets"</span>, <span class="comment">//path to where webpack will build your stuff</span></span><br><span class="line">    publicPath: <span class="string">"/assets/"</span> <span class="comment">//path that will be considered when requiring your files</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="附加资源">附加资源</h3><p>看看现实世界里的栗子，一个成功的团队是如何利用webpack的。<a href="http://youtu.be/VkTCL6Nqm6Y" target="_blank" rel="external">http://youtu.be/VkTCL6Nqm6Y </a>. 这是 Pete Hunt 在 <code>OSCon</code> 上讲的关于webpack在Instagram.com的应用。</p>
+<h3 id="答疑">答疑</h3><p><strong>webpack 似乎不像模块化</strong><br>webpack 非常的模块化。什么让webpack那么强大呢？是它的插件在构建过程中能够把它们自己注入到更多的地方，当你对比其他选择像<code>browserify</code>和<code>requirejs</code>的时候。很多东西似乎是集成在核心里的，实际上仅仅是插件，它们是默认加载的，而且可以被重写。（即 <code>CommonJs</code>需要加载器）。</p>
+<blockquote>
+<p>译：李梦南<br>校对：Ben</p>
+</blockquote>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Trans/" rel="tag">#Trans</a>
+          
+        </div>
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/webpack-howTo-cn/"
+           data-title="webpack-howto-cn" data-url="http://lmnsg.github.io/2015/webpack-howTo-cn/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/uploads/avatar.jpg" alt="李梦南" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">李梦南</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">See and touch the world.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lmnsg/" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/LoveKotte" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 微博
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/lmnn" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#引导目标"><span class="nav-number">1.</span> <span class="nav-text">引导目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向人群"><span class="nav-number">2.</span> <span class="nav-text">面向人群</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-为什么选择webpack?"><span class="nav-number">3.</span> <span class="nav-text">1.为什么选择webpack?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-对于Browserify用户"><span class="nav-number">4.</span> <span class="nav-text">2.对于Browserify用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-如何使用webpack"><span class="nav-number">5.</span> <span class="nav-text">3.如何使用webpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-编译其它js"><span class="nav-number">6.</span> <span class="nav-text">4.编译其它js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-样式表和图片"><span class="nav-number">7.</span> <span class="nav-text">5.样式表和图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-特性标记"><span class="nav-number">8.</span> <span class="nav-text">6.特性标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-多个入口"><span class="nav-number">9.</span> <span class="nav-text">7.多个入口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-优化公共代码"><span class="nav-number">10.</span> <span class="nav-text">8.优化公共代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-异步加载"><span class="nav-number">11.</span> <span class="nav-text">9.异步加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附加资源"><span class="nav-number">12.</span> <span class="nav-text">附加资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#答疑"><span class="nav-number">13.</span> <span class="nav-text">答疑</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李梦南</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lmnsg"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+  
+
+</body>
+</html>
