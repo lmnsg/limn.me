@@ -55,9 +55,10 @@
 
 Vue-validatorVue-validator 是Vue官方发布的表单验证插件,源码发布在vue-validator。
 
-Vue-validator 仍然属于内测阶段，也许会有一些阻断式的更新发布Vue-validator 依赖Vue，且版本为1.0.10+
+Vue-validator 仍然属于内测阶段，也许会有一些阻断式的更新发布
 
-Installationnpm12# 稳定版本$ npm install vue-valida">
+Installation看官网的readme吧…
+踩过的坑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue-validator 使用说明">
 <meta property="og:url" content="http://lmnsg.github.io/2015/vue-validator/index.html">
@@ -66,19 +67,21 @@ Installationnpm12# 稳定版本$ npm install vue-valida">
 
 Vue-validatorVue-validator 是Vue官方发布的表单验证插件,源码发布在vue-validator。
 
-Vue-validator 仍然属于内测阶段，也许会有一些阻断式的更新发布Vue-validator 依赖Vue，且版本为1.0.10+
+Vue-validator 仍然属于内测阶段，也许会有一些阻断式的更新发布
 
-Installationnpm12# 稳定版本$ npm install vue-valida">
-<meta property="og:updated_time" content="2015-12-22T15:10:21.966Z">
+Installation看官网的readme吧…
+踩过的坑">
+<meta property="og:updated_time" content="2015-12-30T14:28:12.772Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue-validator 使用说明">
 <meta name="twitter:description" content="本文参考vue-validator
 
 Vue-validatorVue-validator 是Vue官方发布的表单验证插件,源码发布在vue-validator。
 
-Vue-validator 仍然属于内测阶段，也许会有一些阻断式的更新发布Vue-validator 依赖Vue，且版本为1.0.10+
+Vue-validator 仍然属于内测阶段，也许会有一些阻断式的更新发布
 
-Installationnpm12# 稳定版本$ npm install vue-valida">
+Installation看官网的readme吧…
+踩过的坑">
 
 
 
@@ -300,16 +303,10 @@ Installationnpm12# 稳定版本$ npm install vue-valida">
 </blockquote>
 <h2 id="Vue-validator">Vue-validator</h2><p>Vue-validator 是Vue官方发布的表单验证插件,源码发布在<a href="https://github.com/vuejs/vue-validator" target="_blank" rel="external">vue-validator</a>。</p>
 <blockquote>
-<p>Vue-validator 仍然属于内测阶段，也许会有一些阻断式的更新发布<br>Vue-validator 依赖Vue，且版本为1.0.10+</p>
+<p>Vue-validator 仍然属于内测阶段，也许会有一些阻断式的更新发布</p>
 </blockquote>
-<h2 id="Installation">Installation</h2><h3 id="npm">npm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 稳定版本</span></span><br><span class="line">$ npm install vue-validator</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># development </span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/vuejs/vue-validator.git node_modules/vue-validator</span><br><span class="line"><span class="built_in">cd</span> node_modules/vue-validator</span><br><span class="line">npm install</span><br><span class="line">npm run build</span><br></pre></td></tr></table></figure>
-<p>如果你使用CommonJs来加载，必须显式的调用<code>Vue.use()</code>:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Vue = <span class="built_in">require</span>(<span class="string">'vue'</span>)</span><br><span class="line"><span class="keyword">var</span> VueValidator = <span class="built_in">require</span>(<span class="string">'vue-validator'</span>)</span><br><span class="line"></span><br><span class="line">Vue.use(VueValidator)</span><br></pre></td></tr></table></figure></p>
-<h3 id="CDN">CDN</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://cdn.jsdelivr.net/vue.validator/2.0.0-alpha.8/vue-validator.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>通过<code>script</code>标签引用时，不需要调用<code>Vue.use()</code>，插件自己会做这件事。</p>
-<h2 id="Usage">Usage</h2><p>首先要有一个Vue实例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>然后可以使用 <code>validator</code>提供的标签指令和<code>v-validate</code>指令：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">validator</span> <span class="attribute">name</span>=<span class="value">"validation1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">form</span> <span class="attribute">novalidate</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">v-validate:username</span>=<span class="value">"['required']"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">v-validate:comment</span>=<span class="value">"&#123; maxlength: 256 &#125;"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">v-show</span>=<span class="value">"$validation1.username.required"</span>&gt;</span>Required your name.<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">v-show</span>=<span class="value">"$validation1.comment.maxlength"</span>&gt;</span>Your comment is too long.<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span> <span class="attribute">value</span>=<span class="value">"send"</span> <span class="attribute">v-if</span>=<span class="value">"$validation1.valid"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">validator</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-</span>
+<h2 id="Installation">Installation</h2><p>看官网的readme吧…</p>
+<h2 id="踩过的坑">踩过的坑</h2></span>
       
     </div>
 
@@ -333,6 +330,10 @@ Installationnpm12# 稳定版本$ npm install vue-valida">
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/yunTu1-21-birthday-party/" rel="prev" title="云图生日Party-1.21">
+                云图生日Party-1.21 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -404,7 +405,7 @@ Installationnpm12# 稳定版本$ npm install vue-valida">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -476,7 +477,7 @@ Installationnpm12# 稳定版本$ npm install vue-valida">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-validator"><span class="nav-number">1.</span> <span class="nav-text">Vue-validator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Installation"><span class="nav-number">2.</span> <span class="nav-text">Installation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#npm"><span class="nav-number">2.1.</span> <span class="nav-text">npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CDN"><span class="nav-number">2.2.</span> <span class="nav-text">CDN</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Usage"><span class="nav-number">3.</span> <span class="nav-text">Usage</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-validator"><span class="nav-number">1.</span> <span class="nav-text">Vue-validator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Installation"><span class="nav-number">2.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#踩过的坑"><span class="nav-number">3.</span> <span class="nav-text">踩过的坑</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
@@ -496,8 +497,8 @@ Installationnpm12# 稳定版本$ npm install vue-valida">
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2015</span>
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>
