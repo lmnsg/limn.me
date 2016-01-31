@@ -4,18 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>TagCloud | 学与见</title>
+  <title>如何禁止chrome的表单自动填充 | 学与见</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="See and touch the world.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TagCloud">
-<meta property="og:url" content="http://lmnsg.github.io/tags/index.html">
+  <meta name="description" content="Chrome以及Ie，Firefox等浏览器大多都提供了表单记住密码然后下次再登陆时自动填充这么一个功能，这大大方便了用户，比如我这种懒人经常记不住密码，不用每次都去密码本上去翻密码了，但是，在某些场景我们恰恰希望chrome不要那么主动，毕竟自己动的乐趣还是蛮大的…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何禁止chrome的表单自动填充">
+<meta property="og:url" content="http://lmnsg.github.io/2016/howToCloseChromeAutocomplete/index.html">
 <meta property="og:site_name" content="学与见">
-<meta property="og:description" content="See and touch the world.">
-<meta property="og:updated_time" content="2015-11-27T15:38:10.196Z">
+<meta property="og:description" content="Chrome以及Ie，Firefox等浏览器大多都提供了表单记住密码然后下次再登陆时自动填充这么一个功能，这大大方便了用户，比如我这种懒人经常记不住密码，不用每次都去密码本上去翻密码了，但是，在某些场景我们恰恰希望chrome不要那么主动，毕竟自己动的乐趣还是蛮大的…">
+<meta property="og:image" content="http://lmnsg.github.io/uploads/完美.jpg">
+<meta property="og:updated_time" content="2016-01-31T13:22:03.320Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TagCloud">
-<meta name="twitter:description" content="See and touch the world.">
+<meta name="twitter:title" content="如何禁止chrome的表单自动填充">
+<meta name="twitter:description" content="Chrome以及Ie，Firefox等浏览器大多都提供了表单记住密码然后下次再登陆时自动填充这么一个功能，这大大方便了用户，比如我这种懒人经常记不住密码，不用每次都去密码本上去翻密码了，但是，在某些场景我们恰恰希望chrome不要那么主动，毕竟自己动的乐趣还是蛮大的…">
   
     <link rel="alternative" href="/atom.xml" title="学与见" type="application/atom+xml">
   
@@ -201,11 +202,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-howToCloseChromeAutocomplete" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/tags/index.html" class="article-date">
-  	<time datetime="2015-11-27T15:37:09.000Z" itemprop="datePublished">2015-11-27</time>
+      <a href="/2016/howToCloseChromeAutocomplete/" class="article-date">
+  	<time datetime="2016-01-30T16:00:00.000Z" itemprop="datePublished">2016-01-31</time>
 </a>
     </div>
   
@@ -218,7 +219,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      TagCloud
+      如何禁止chrome的表单自动填充
     </h1>
   
 
@@ -227,6 +228,10 @@
       <div class="article-info article-info-post">
         
         
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/前端/">前端</a>
+	</div>
+
 
         <div class="clearfix"></div>
       </div>
@@ -234,13 +239,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <blockquote>
+<p>Chrome以及Ie，Firefox等浏览器大多都提供了表单记住密码然后下次再登陆时自动填充这么一个功能，这大大方便了用户，比如我这种懒人经常记不住密码，不用每次都去密码本上去翻密码了，但是，在某些场景我们恰恰希望chrome不要那么主动，毕竟自己动的乐趣还是蛮大的…</p>
+</blockquote>
+<a id="more"></a>
+<p>前一段时间，项目上有个恰好有个登录页面，页面上呢有两个登录框框，给两种角色的人使用，页面通过hash来切换要显示哪个登录框框，比如普通用户是#i,另一种用户是#o,每种用户的账号格式不太一样，一个是手机号码，另一个比较风骚，只让用email。Chrome非常给力，能够同时记住两种用户的账号密码准确填充，十分好用。<br>但是，当你只记住一种用户的账号，比如手机号那种，假如你通过url进入另一种用户的登录界面，chrome就有点手足无措了，它仍然将不属于这个用户格式的手机号直接填充到登录框里。于是我们的产品汪就说辣：‘这，用户会不会以为我们是傻逼？’，我很想很抽一巴掌给他，告诉他这是Chrome的锅，但是，想想我还要吃饭穿衣攒钱买老婆忍住了。</p>
+<h3 id="开始寻找解决办法">开始寻找解决办法</h3><p>尝试给两个form添加name、id等属性，发现chrome才不管你这些，就是往里硬塞。 于是就想，干脆禁用掉chrome的自动保存功能算了。好….那就这么干</p>
+<h3 id="如何禁用呢？">如何禁用呢？</h3><h5 id="HTML_5_input_autocomplete_(摘自W3C)">HTML 5 input autocomplete (摘自W3C)</h5><ul>
+<li>定义和用法<br>autocomplete 属性规定输入字段是否应该启用自动完成功能。<br>自动完成允许浏览器预测对字段的输入。当用户在字段开始键入时，浏览器基于之前键入过的值，应该显示出在字段中填写的选项。</li>
+<li>注释：autocomplete 属性适用于 form，以及下面的 input 类型：text, search, url, telephone, email, password, datepickers, range 以及 color。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">autocomplete</span>=<span class="value">"off"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>呵呵呵呵，毕竟图样，现代浏览器大多都会直接忽略掉队用户名密码的 autocomplete=”off” ，这些个磨人的小妖精</p>
+<h3 id="终结：前置一个空的密码输入框">终结：前置一个空的密码输入框</h3><p>google了下，终于找到了一个简单粗暴的解决办法。那就是在密码input前置一个隐藏的type=”password”的输入框。<br>比如这样：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"password"</span> <span class="attribute">style</span>=<span class="value">"display:none"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"password"</span> <span class="attribute">name</span>=<span class="value">"b"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">button</span>&gt;</span>Sign in<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="/uploads/完美.jpg" alt="完美"></p>
+
       
     </div>
     
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2015/webpack-howTo-cn/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webpack-howto-cn</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -266,6 +295,26 @@
 
 
 
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="howToCloseChromeAutocomplete" data-title="如何禁止chrome的表单自动填充" data-url="http://lmnsg.github.io/2016/howToCloseChromeAutocomplete/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
@@ -294,7 +343,7 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
