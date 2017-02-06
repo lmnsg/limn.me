@@ -1,4 +1,4 @@
-layout: post
+elayout: post
 title: 一些资料
 date: 2016-02-23
 categories: 前端

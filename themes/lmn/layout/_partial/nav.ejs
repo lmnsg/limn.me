@@ -1,0 +1,29 @@
+<header class="site-header">
+  <div class="header-inside">
+    <div class="logo">
+      <a href="<%= url_for() %>" rel="home">
+        <% if (config.logo || theme.logo) { %>
+        <img src="<%- config.logo || theme.logo %>" alt="<%- config.title %>" height="60">
+        <% } %>
+      </a>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <% var site_navs = config.nav || theme.nav  %>
+            <% for (var i in site_navs){ %>
+            <li>
+                <a href="<%- site_navs[i].url ? url_for(site_navs[i].url) : url_for(site_navs[i]) %>">
+                    <% if (site_navs[i].icon) { %>
+                    <i class="fa fa-<%= site_navs[i].icon %> fa-stack-2x"></i>
+                    <% } else { %>
+                    <%= i %>
+                    <% } %>
+                </a>
+            </li>
+            <% } %>
+        </ul>
+      <!-- /.navbar-collapse -->
+    </nav>
+  </div>
+</header>
