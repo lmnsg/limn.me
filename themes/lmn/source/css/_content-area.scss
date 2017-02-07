@@ -1,0 +1,80 @@
+.content-area {
+    margin-top: $header-height;
+    padding: 0 $padding-left*2 2%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .card {
+        margin: 2% 1% 0;
+        width: 23%;
+        overflow: hidden;
+
+        &:nth-child(5n+1) {
+            .banner {
+                background: #4285f4;
+            }
+        }
+        &:nth-child(5n+2) {
+            .banner {
+                background: #ea4335;
+            }
+        }
+        &:nth-child(5n+3) {
+            .banner {
+                background: #fbbc05;
+            }
+        }
+        &:nth-child(5n+4) {
+            .banner {
+                background: #416bf7;
+            }
+        }
+        &:nth-child(5n+5) {
+            .banner {
+                background: #3a9b3c;
+            }
+        }
+
+        .banner {
+            position: relative;
+            padding-top: 53%;
+        }
+        .banner-inner {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            right: 20px;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .entry-title {
+            color: #eee;
+            transition: color .3s;
+            &:after {
+                content: none;
+            }
+            &:hover {
+                color: #fff;
+            }
+        }
+        .posted-on {
+            margin: 0 auto;
+            text-align: left;
+            color: #fff;
+        }
+
+        .tags-links {
+            padding: 20px 20px 0;
+            a {
+                color: #fff;
+            }
+        }
+        .post {
+            padding: 0;
+        }
+    }
+
+}

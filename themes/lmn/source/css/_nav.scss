@@ -1,5 +1,3 @@
-$headre-height: 50px;
-
 .site-header {
     width: 100%;
     background: #fff;
@@ -8,9 +6,9 @@ $headre-height: 50px;
     position: fixed;
     top: 0;
     left: 0;
-    padding-left: 50px;
-    padding-right: 50px;
-    height: $headre-height;
+    padding-left: $padding-left;
+    padding-right: $padding-left;
+    height: $header-height;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -43,7 +41,7 @@ $headre-height: 50px;
 .logo {
     img {
         display: block;
-        height: $headre-height - 10px;
+        height: $header-height - 10px;
         border-radius: 50%;
     }
 }

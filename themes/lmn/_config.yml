@@ -19,8 +19,8 @@ highlight:
 
 # nav #
 nav:
-  home: .
-  archive: archives
+  博客: .
+  归档: archives
   # about: about
   # rss: atom.xml
 

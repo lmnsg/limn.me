@@ -72,7 +72,8 @@ deploy:
   repository: git@github.com:lmnsg/lmnsg.github.io.git
 
 # 多说域名
-duoshuo_shortname: lmnsg
+#duoshuo_shortname: lmnsg
+disqus_shortname: limengnan
 
 # 百度统计
 baidu_analytics: bdf87365ce8ce63548f35afcf4c08b43
@@ -84,3 +85,5 @@ social:
   GitHub: https://github.com/lmnsg/
   微博: http://weibo.com/LoveKotte
   知乎: http://www.zhihu.com/people/lmnn
+
+footer: hello, world!
