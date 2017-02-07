@@ -33,12 +33,6 @@ node_sass:
 # Default post title
 default_post_title: Untitled
 
-# social
-social:
-  github: https://github.com/GallenHu
-  # weibo: http://weibo.com/10010800
-  # mail: mailto:gallenhu@foxmail.com
-  # twitter: https://twitter.com/GallenHu
 
 # widget
 #   title: 标题

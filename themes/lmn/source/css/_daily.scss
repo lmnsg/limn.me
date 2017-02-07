@@ -526,6 +526,9 @@ Footer
             background-image: url('../images/#{$social}.svg');
         }
     }
+    &.icon-zhihu {
+        background-image: url('../images/zhihu.png');
+    }
     &:hover {
         opacity: 0.7;
     }
