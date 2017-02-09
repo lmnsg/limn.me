@@ -1,5 +1,5 @@
 layout: post
-title: webpack-howto-cn
+title: webpack 入门引导
 date: 2015-12-09 17:38:33
 categories: Trans
 tags: Trans
@@ -243,7 +243,3 @@ output: {
 ### 答疑
 **webpack 似乎不像模块化**
 webpack 极其的模块化。什么使webpack相比其他的选择比如`browserify`和`requirejs`那么棒呢？是因为它让插件们在构建过程中能够把自己注入到很多的地方。很多东西看似是集成在核心里的，实际上仅仅是默认加载的插件，它们可以被重写。（即 `CommonJs`的`require()`解析器）。
-
-
-> 译：李梦南 
-> 校对：Ben 
