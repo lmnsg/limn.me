@@ -336,10 +336,11 @@ Content
 }
 
 .container {
-    max-width: calc(100vw - 800px);
+    margin-right: 100px;
+}
+
+.center {
     margin: 0 auto;
-    padding-left: 50px;
-    padding-right: 50px;
 }
 
 .inside-wrapper {
