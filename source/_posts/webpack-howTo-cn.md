@@ -6,9 +6,9 @@ tags: Trans
 ---
 本文翻译于[webpack-howto](https://github.com/petehunt/webpack-howto)
 
-### 引导目标
+### 前言
 
-这是一份关于如何使用`webpack`来把事情做好的菜单,它包含了所有我们在`Instagram`已经使用了的和不使用的内容。
+这是一份关于如何使用`webpack`的入门指南,它包含了所有我们在`Instagram`已经使用了的和不使用的内容。
 我的建议：把本文作为你开始使用`webpack`的资料,然后可以去关注官方的文档说明。
 
 <!-- more -->
