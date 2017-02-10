@@ -1,0 +1,11 @@
+$break-small: 320px;
+$break-large: 768px;
+
+@mixin respond($media: m) {
+    @if $media == m {
+        @media only screen and (min-width: $break-small) and (max-width: $break-large) { @content; }
+    }
+    @else if $media == pc {
+        @media only screen and (min-width: $break-large) { @content; }
+    }
+}
