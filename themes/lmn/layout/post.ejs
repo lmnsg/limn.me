@@ -49,27 +49,10 @@
     </div>
 
     <!-- Comments -->
-    <div class="comments-container">
+    
         <%- partial('_partial/comment', {
         shortname: config.disqus_shortname
         }) %>
-        <script>
-            var $container = document.querySelector('.comments-container')
-            var $placeholder
-
-            var timer = setInterval(function() {
-            	if (document.querySelector('#dsq-app1')) {
-            		if ($placeholder) $container.removeChild($placeholder)
-            		return clearInterval(timer)
-                }
-	            if (!$placeholder) {
-		            $placeholder = document.createElement('i')
-		            $placeholder.innerText = '本站使用DSIQUS，若您加载不出评论，请先科学上网。'
-		            $container.appendChild($placeholder)
-                }
-            }, 3000)
-        </script>
-    </div>
 </div>
 
 
