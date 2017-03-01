@@ -1,7 +1,7 @@
 layout: post
-title: 简单实现银行卡号每隔4位插入空格
+title: js银行卡号每隔4位插入空格
 date: 2017-03-01
-categories: 前端
+tags: javascript
 ---
 
 > 之前项目中用到的一个功能，在这里贴一下自己的实现方式吧
