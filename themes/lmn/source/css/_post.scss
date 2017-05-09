@@ -1,71 +1,85 @@
 .post {
-    flex: 1;
-    padding-top: 40px;
-    .nav-links {
-        margin-top: 40px;
-        display: flex;
-        justify-content: space-between;
-        a {
-            text-decoration: none;
-            color: #3a3a3a;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang-SC-Regular", "STHeiti", "Helvetica", "Arial", "Verdana", "sans-serif", "Microsoft YaHei";
-            font-size: 0.750em;
-        }
-        .nav-link {
-        }
-        .meta-arraw {
-            opacity: 0.8;
-        }
+  padding-top: 40px;
+  .nav-links {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    a {
+      text-decoration: none;
+      color: #3a3a3a;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang-SC-Regular", "STHeiti", "Helvetica", "Arial", "Verdana", "sans-serif", "Microsoft YaHei";
+      font-size: 0.750em;
     }
+    .nav-link {
+    }
+    .meta-arraw {
+      opacity: 0.8;
+    }
+  }
+}
+
+.entry-title.popup {
+  position: fixed;
+  left: 100px;
+  top: 0;
+  margin: 0;
+  z-index: 100;
+
+  &::after {
+    content: none;
+  }
 }
 
 .entry-content {
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang-SC-Regular", "STHeiti", "Helvetica", "Arial", "Verdana", "sans-serif", "Microsoft YaHei";
-    line-height: 1.7;
-    word-wrap: break-word;
-    ol,
-    ul {
-        margin: 0 0 1.5em 3em;
-    }
-    ul {
-        list-style: disc;
-    }
-    blockquote {
-        color: #aaa;
-        margin: 1em 0;
-        padding: 0 0 0 30px;
-        border-left: 4px solid #aaa;
-    }
-    p img {
-        display: block;
-        margin: 0 auto;
-    }
-    a:link {
-        color: #3769c9;
-    }
-    a:visited {
-        color: #3769c9;
-    }
-    a:active,
-    a:focus,
-    a:hover {
-        color: #3769c9;
-        opacity: 0.8;
-    }
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang-SC-Regular", "STHeiti", "Helvetica", "Arial", "Verdana", "sans-serif", "Microsoft YaHei";
+  line-height: 1.7;
+  word-wrap: break-word;
+  ol,
+  ul {
+    margin: 0 0 1.5em 3em;
+  }
+  ul {
+    list-style: disc;
+  }
+  blockquote {
+    color: #aaa;
+    margin: 1em 0;
+    padding: 0 0 0 30px;
+    border-left: 4px solid #aaa;
+  }
+  p img {
+    display: block;
+    margin: 0 auto;
+  }
+  a:link {
+    color: $linkColor;
+  }
+  a:visited {
+    color: $linkColor;
+  }
+  a:active,
+  a:focus,
+  a:hover {
+    color: $linkColor;
+    opacity: 0.8;
+  }
 }
 
 .comments-container {
-    margin-left: 5%;
-    padding-top: 62px;
-    flex: 1;
-    max-width: 400px;
-    @include respond(m) {
-        margin-left: 0;
-    }
-    h1 {
-        color: #666;
-        font-weight: 100;
-    }
+  position: fixed;
+  right: 100px;
+  width: 400px;
+  margin-left: 5%;
+  padding-top: 62px;
+  flex: 1;
+  max-width: 400px;
+  @include respond(m) {
+    margin-left: 0;
+  }
+  h1 {
+    color: #666;
+    font-weight: 100;
+  }
 }

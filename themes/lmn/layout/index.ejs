@@ -1,9 +1,9 @@
 <div class="site-content home">
-    <main class="content-area">
+    <ul class="post-list">
         <% page.posts.each(function(item, itemIndex){ %>
             <%- partial('_partial/article-index', {item: item}) %>
         <% }); %>
 
         <%- partial('_partial/pagination') %>
-    </main>
+    </ul>
 </div>

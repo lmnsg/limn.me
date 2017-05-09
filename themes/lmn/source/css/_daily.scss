@@ -267,19 +267,19 @@ em {
 Links
 --------------------------------------------------------------*/
 a {
-    color: $color-text;
+    color: $linkColor;
     text-decoration: none;
     transition: color .3s;
 }
 
 a:visited {
-    color: $color-text;
+    color: $linkColor;
 }
 
 a:active,
 a:focus,
 a:hover {
-    color: $color-text;
+    color: $linkColor;
 }
 
 /*--------------------------------------------------------------
@@ -468,10 +468,8 @@ Footer
     z-index: 2;
     position: relative;
     background: #fff;
-    border-top: 1px solid #dcdcdc;
-    border-bottom: 1px solid #dcdcdc;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
     text-align: center;
 }
 

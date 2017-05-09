@@ -19,9 +19,8 @@ highlight:
 
 # nav #
 nav:
-  博客: .
-  归档: archives
-  # about: about
+  学与见: /
+#  归档: archives
   # rss: atom.xml
 
 # hexo-renderer-sass
