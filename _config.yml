@@ -68,8 +68,15 @@ theme: lmn
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repository: git@github.com:lmnsg/lmnsg.github.io.git
+  type: rsync
+  host: limn.me
+  user: root
+  root: /blog
+  port: 6759
+  delete: true
+  verbose: false
+  ignore_errors: true
+
 
 # 多说域名
 #duoshuo_shortname: lmnsg
