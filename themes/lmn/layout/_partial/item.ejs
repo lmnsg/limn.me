@@ -9,18 +9,15 @@
     <div class="excerpt">
       <%- item.excerpt %>
     </div>
-    <p class="posted-on">
-      <%= item.date.format(config.date_format) %>
-    </p>
-    <% if (item.tags.length) { %>
-    <div class="tags-links">
-      <% item.tags.each(function(tag){ %>
-      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-        #<%- tag.name %>
-      </a>
-      <% }); %>
+    <div class="footer">
+      <span class="date"><%= item.date.format(config.date_format) %></span>
+      <div class="tags">
+        <% item.tags.each(function(tag){ %>
+        <a class="tag" href="<%= config.root %>tags/<%= tag.name %>/">
+          #<%- tag.name %>
+        </a>
+        <% }); %>
+      </div>
     </div>
-    <% } %>
   </div>
-
 </li>

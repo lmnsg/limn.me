@@ -1,11 +1,11 @@
-/* dev */
+// dev
 #__bs_notify__ {
   display: none !important;
 }
 
 $color: #03a87c;
 $color2: #E8F3EC;
-/* reset */
+// reset
 body {
   font: 16px/1.5 Georgia, serif;
 }
@@ -22,11 +22,11 @@ h1, h2, h3, h4, h5 {
 
 a {
   text-decoration: none;
-  color: $color;
+  color: inherit;
 }
 
-/* header */
-.header {
+// header
+#header {
   display: flex;
   padding: 0 20px;
   height: 54px;
@@ -53,12 +53,11 @@ a {
 }
 
 .navbar {
-  margin-top: 2px;
   flex: 1;
-  height: 28px;
-  line-height: 28px;
-  background: $color2;
+  margin-top: 2px;
+  padding: .5em 0;
   border-top: 1px $color solid;
+  border-bottom: 1px #eee solid;
 
   .category-list {
     text-align: center;
@@ -73,18 +72,20 @@ a {
 }
 
 .posts {
-  margin-top: 20px;
+  padding: 0 20px;
   .list {
     list-style: none;
   }
 
   .post {
-    margin: 0 20px 20px;
-    border: 1px #eee solid;
+    margin-top: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px #eee solid;
     border-radius: 2px;
 
     .cover {
       display: block;
+      margin-bottom: 16px;
       width: 100%;
       height: 170px;
       background-size: cover;
@@ -92,7 +93,10 @@ a {
     }
 
     .content {
-      padding: 16px;
+    }
+
+    .title {
+      color: #444;
     }
 
     .excerpt {
@@ -100,5 +104,44 @@ a {
       font-size: 14px;
       color: #777;
     }
+
+    .footer {
+      display: flex;
+      margin-top: .4em;
+      font-size: 12px;
+      color: #999;
+    }
+    .date {
+      flex: 1;
+    }
+    .tags {
+      text-align: right;
+    }
   }
+}
+
+.pager {
+  padding: 1em 0;
+  text-align: center;
+
+  .prev, .next {
+    display: inline-block;
+    margin: 0 1em;
+    font-size: 14px;
+    color: #666;
+    text-decoration: underline;
+  }
+
+  .disable {
+    color: #999;
+  }
+}
+
+// footer
+#footer {
+  padding: 1em 0;
+  border-top: 1px $color2 solid;
+  text-align: center;
+  font-size: 14px;
+  color: #888;
 }

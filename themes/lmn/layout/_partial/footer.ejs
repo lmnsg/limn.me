@@ -1,29 +1,3 @@
-<!-- Footer-widgets -->
-<div class="footer-widgets">
-  <div class="row inside-wrapper">
-      <aside>
-        <h1 class="widget-title"><%- __('contact') %></h1>
-        <div class="widget-text">
-          <% if (config.social) { %>
-            <% _.forIn(config.social, function(val, key){ %>
-              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><%- key %></a>
-            <% }) %>
-          <% } else { %>
-            <% _.forIn(theme.social, function(val, key){ %>
-              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><%- key %></a>
-            <% }) %>
-          <% } %>
-        </div>
-      </aside>
-  </div>
-</div>
-<!-- Footer -->
-<footer class="site-info">
-  <p>
-    <span><%- config.title %> &copy; <%= (new Date()).getFullYear() %></span>
-    <% if(config.footer !== null) { %>
-      <span class="split">|</span>
-      <span><%- config.footer || theme.footer %></span>
-    <% } %>
-  </p>
+<footer id="footer">
+  <span><%- config.title %> &copy; <%= (new Date()).getFullYear() %></span>
 </footer>
