@@ -1,7 +1,7 @@
 layout: post
 title: axios 设置 xsrf
 date: 2016-12-22
-tags: javascript
+categories: javascript
 ---
 
 由于项目需要，在客户端生成 xsrf token，在发请求的时候在 header 里发给服务端。

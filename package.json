@@ -5,6 +5,9 @@
   "hexo": {
     "version": "3.4.1"
   },
+  "scripts": {
+    "dev": "hexo s"
+  },
   "dependencies": {
     "hexo": "^3.2.2",
     "hexo-deployer-rsync": "^0.1.3",

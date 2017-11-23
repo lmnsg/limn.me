@@ -1,0 +1,26 @@
+<li class="post">
+  <% if (item.cover) { %>
+  <a class="cover" style="background-image: url(<%- item.cover %>)" alt="<%- item.title %>"></a>
+  <% } %>
+  <div class="content">
+    <h3 class="title">
+      <a href="<%- config.root %><%- item.path %>"><%- item.title %></a>
+    </h3>
+    <div class="excerpt">
+      <%- item.excerpt %>
+    </div>
+    <p class="posted-on">
+      <%= item.date.format(config.date_format) %>
+    </p>
+    <% if (item.tags.length) { %>
+    <div class="tags-links">
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        #<%- tag.name %>
+      </a>
+      <% }); %>
+    </div>
+    <% } %>
+  </div>
+
+</li>
