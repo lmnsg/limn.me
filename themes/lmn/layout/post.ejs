@@ -1,34 +1,31 @@
-<div class="post-detail">
-  <div class="post">
+<div id="post">
+  <article>
+    <h1 class="title"><%- page.title %></h1>
+    <header class="header">
+      <span class="date"><%= page.date.format(config.date_format) %></span>
+      <div class="categories">
+        <span>标签：</span>
+        <%- list_categories(page.categories, { show_count: false }) %>
+      </div>
+      <div class="tags-links">
+        <% if (page.tags) { %>
+        <% page.tags.each(function(tag){ %>
+        <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+          #<%- tag.name %>
+        </a>
+        <% }); %>
+        <% } %>
+      </div>
+    </header>
+    <!-- Post Main Content -->
+    <div class="entry-content">
+      <%- page.content %>
+    </div>
+  </article>
+  <div class="content">
     <!-- Post Content -->
     <div class="container">
-      <article>
-        <!-- Title date & tags -->
-        <div class="post-header">
-          <h1 id="entryTitle" class="entry-title">
-            <%- page.title || theme.default_post_title || "Untitled" %>
-            <% if (page.subtitle && page.subtitle.length) { %>
-            <p><%- page.subtitle %></p>
-            <% } %>
-          </h1>
-          <p class="posted-on">
-            <%= page.date.format(config.date_format) %>
-          </p>
-          <div class="tags-links">
-            <% if (page.tags) { %>
-            <% page.tags.each(function(tag){ %>
-            <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-              #<%- tag.name %>
-            </a>
-            <% }); %>
-            <% } %>
-          </div>
-        </div>
-        <!-- Post Main Content -->
-        <div class="entry-content">
-          <%- page.content %>
-        </div>
-      </article>
+
       <!-- Pre or Next -->
 
       <div class="nav-links">
@@ -54,30 +51,5 @@
   shortname: config.disqus_shortname
   }) %>
 </div>
-
-<script>
-  var $title = $('#entryTitle')
-  var $window = $(window)
-  var $headerH = $('.site-header').height()
-
-  var $copy = $title.clone()
-  $copy.appendTo($title.parent())
-  $copy.addClass('popup')
-  $copy.css({
-    width: $title.width(),
-    height: $title.height(),
-    lineHeight: $title.height() + 'px',
-    opacity: 0
-  })
-
-  $window.scroll(function () {
-    $copy.animate({
-      opacity: ($window.scrollTop() - $headerH) / $headerH
-    }, 0.6)
-    $title.animate({
-      opacity: ($headerH - $window.scrollTop()) / $headerH
-    }, 0.6)
-  })
-</script>
 
 

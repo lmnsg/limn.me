@@ -1,6 +1,6 @@
 <li class="post">
   <% if (item.cover) { %>
-  <a class="cover" style="background-image: url(<%- item.cover %>)" alt="<%- item.title %>"></a>
+  <a class="cover" href="<%- config.root %><%- item.path %>" style="background-image: url(<%- item.cover %>)" alt="<%- item.title %>"></a>
   <% } %>
   <div class="content">
     <h3 class="title">

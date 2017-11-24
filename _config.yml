@@ -77,7 +77,7 @@ deploy:
   host: limn.me
   user: root
   root: /blog
-  port: 6759
+  port: 22
   delete: true
   verbose: false
   ignore_errors: true
