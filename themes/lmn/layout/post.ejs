@@ -1,50 +1,27 @@
 <div id="post">
   <article>
-    <h1 class="title"><%- page.title %></h1>
-    <header class="header">
-      <span class="date"><%= page.date.format(config.date_format) %></span>
-      <div class="categories">
-        <span>标签：</span>
-        <%- list_categories(page.categories, { show_count: false }) %>
-      </div>
-      <div class="tags-links">
-        <% if (page.tags) { %>
-        <% page.tags.each(function(tag){ %>
-        <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-          #<%- tag.name %>
-        </a>
-        <% }); %>
-        <% } %>
+    <header>
+      <h1 class="title"><%- page.title %></h1>
+      <div class="post-on">
+        <div class="date">
+          <span class="label">发布：</span>
+          <span class="value"><%= page.date.format(config.date_format) %></span>
+        </div>
+        <div class="categories">
+          <span class="label">分类：</span>
+          <%- list_categories(page.categories, { show_count: false }) %>
+        </div>
+        <div class="tags">
+          <span class="label">标签：</span>
+          <%- list_tags(page.tags, { show_count: false }) %>
+        </div>
       </div>
     </header>
     <!-- Post Main Content -->
-    <div class="entry-content">
+    <div class="content">
       <%- page.content %>
     </div>
   </article>
-  <div class="content">
-    <!-- Post Content -->
-    <div class="container">
-
-      <!-- Pre or Next -->
-
-      <div class="nav-links">
-        <% if (page.prev) { %>
-        <div class="nav-previous nav-link">
-          <a href="<%- config.root %><%- page.prev.path %>" rel="prev"><span
-            class="meta-arraw meta-arraw-left"></span> <%- page.prev.title %></a>
-        </div>
-        <% } %>
-        <% if (page.next) { %>
-        <div class="nav-next nav-link">
-          <a href="<%- config.root %><%- page.next.path %>" rel="prev"><%- page.next.title %> <span
-            class="meta-arraw meta-arraw-right"></span></a>
-        </div>
-        <% } %>
-      </div>
-    </div>
-  </div>
-
   <!-- Comments -->
 
   <%- partial('_partial/comment', {

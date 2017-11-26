@@ -7,7 +7,8 @@ $color: #03a87c;
 $color2: #E8F3EC;
 // reset
 body {
-  font: 16px/1.5 Georgia, serif;
+  font: 16px/1.5 Georgia, serif, arial;
+  color: #444;
 }
 
 * {
@@ -20,9 +21,15 @@ h1, h2, h3, h4, h5 {
   font-family: Palatino, Garamond, Times, Georgia, serif;;
 }
 
+li {
+  list-style: none;
+}
+
 a {
+  font: inherit;
   text-decoration: none;
   color: inherit;
+  cursor: alias;
 }
 
 // header
@@ -37,6 +44,7 @@ a {
     flex: 1;
     font-size: 24px;
     font-weight: 400;
+    color: #000;
   }
 
   .avatar {
@@ -66,7 +74,7 @@ a {
     li {
       display: inline-block;
       margin-left: 1.5em;
-      color: rgba(0, 0, 0, 0.54);
+      color: #888;
     }
   }
 }
@@ -90,9 +98,6 @@ a {
       height: 170px;
       background-size: cover;
       background-position: 50% 50%;
-    }
-
-    .content {
     }
 
     .title {
@@ -146,10 +151,51 @@ a {
   color: #888;
 }
 
-
 #post {
-  margin: 20px auto;
+  padding: 20px;
   .title {
     text-align: center;
+  }
+
+  .post-on {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 300;
+    color: #999;
+
+    .date .value {
+      transform: translate(0, -.1em);
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      padding: 0 .6em;
+    }
+
+    ul {
+      margin-left: -.3em;
+    }
+
+    li {
+      display: inline-block;
+      margin-left: .3em;
+    }
+
+    li:hover {
+      color: $color;
+    }
+  }
+
+  .content {
+    margin-top: 20px;
+    line-height: 1.8;
+
+    p {
+      margin-bottom: .6em;
+    }
   }
 }
