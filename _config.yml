@@ -10,11 +10,6 @@ author: 李梦南
 language: zh-Hans
 timezone:
 
-nav:
-  学与见: /
-
-categories:
-  sss: /2
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://lmnsg.github.io/
@@ -42,9 +37,10 @@ render_drafts: false
 post_asset_folder: true
 relative_link: false
 future: true
+
 highlight:
   enable: true
-  line_number: true
+  line_number: false
   auto_detect: true
   tab_replace:
 
@@ -90,7 +86,7 @@ disqus_shortname: limengnan
 # 百度统计
 baidu_analytics: bdf87365ce8ce63548f35afcf4c08b43
 
-since: 2015
+since: 2017
 
 # Social links
 social:

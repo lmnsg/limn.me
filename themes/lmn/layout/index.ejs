@@ -1,8 +1,11 @@
+<%- partial('_partial/nav') %>
 <div class="posts">
-    <ul class="list">
-        <% page.posts.each(function(item, itemIndex){ %>
-            <%- partial('_partial/item', {item: item}) %>
-        <% }); %>
-    </ul>
-    <%- partial('_partial/pagination') %>
+  <ul class="list">
+    <% page.posts.each(function(item, itemIndex){ %>
+    <%- partial('_partial/item', {item: item}) %>
+    <% }); %>
+  </ul>
+  <%- partial('_partial/pagination') %>
 </div>
+<%- partial('_partial/footer') %>
+

@@ -1,6 +1,6 @@
 <% if (page.prev || page.next){ %>
 <div class="pager">
-  <a class="prev <%- !page.prev && 'disable' %>" href="<%- config.root %><%- page.prev_link %>">← Prev</a>
-  <a class="next <%- !page.next && 'disable' %>" href="<%- config.root %><%- page.next_link %>">Next →</a>
+  <a class="prev <%- !page.prev && 'disable' %>" href="<%- config.root %><%- page.prev_link || page.prev && page.prev.path %>">← Prev</a>
+  <a class="next <%- !page.next && 'disable' %>" href="<%- config.root %><%- page.next_link || page.next && page.next.path %>">Next →</a>
 </div>
 <% } %>

@@ -1,23 +1,25 @@
 <li class="post">
-  <% if (item.cover) { %>
-  <a class="cover" href="<%- config.root %><%- item.path %>" style="background-image: url(<%- item.cover %>)" alt="<%- item.title %>"></a>
-  <% } %>
-  <div class="content">
-    <h3 class="title">
-      <a href="<%- config.root %><%- item.path %>"><%- item.title %></a>
-    </h3>
-    <div class="excerpt">
-      <%- item.excerpt %>
-    </div>
-    <div class="footer">
-      <span class="date"><%= item.date.format(config.date_format) %></span>
-      <div class="tags">
-        <% item.tags.each(function(tag){ %>
-        <a class="tag" href="<%= config.root %>tags/<%= tag.name %>/">
-          #<%- tag.name %>
-        </a>
-        <% }); %>
+  <a href="<%- config.root %><%- item.path %>">
+    <% if (item.cover) { %>
+    <div class="cover" style="background-image: url(<%- item.cover %>)"></div>
+    <% } %>
+    <div class="content">
+      <h3 class="title">
+        <%- item.title %>
+      </h3>
+      <div class="excerpt">
+        <%- item.excerpt %>
+      </div>
+      <div class="footer">
+        <span class="date"><%= item.date.format(config.date_format) %></span>
+        <!--<div class="tags">-->
+        <!--<% item.tags.each(function(tag){ %>-->
+        <!--<a class="tag" href="<%= config.root %>tags/<%= tag.name %>/">-->
+        <!--#<%- tag.name %>-->
+        <!--</a>-->
+        <!--<% }); %>-->
+        <!--</div>-->
       </div>
     </div>
-  </div>
+  </a>
 </li>

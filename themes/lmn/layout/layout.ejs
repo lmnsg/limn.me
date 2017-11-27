@@ -1,18 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-<%- partial('_partial/head') %>
-
+<%- partial('_partial/head', {}, {cache: true}) %>
 <body>
-
-  <%- partial('_partial/nav') %>
-
-  <%- body %>
-
-  <%- partial('_partial/footer') %>
-
-  <%- partial('_partial/after-footer') %>
-
+<%- body %>
+<%- partial('_partial/after-footer', {}, {cache: true}) %>
 </body>
-
 </html>

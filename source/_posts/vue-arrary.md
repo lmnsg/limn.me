@@ -16,7 +16,8 @@ vue 提供了一些数组的变异方法：
 * unshift()
 * splice()
 * sort()
-* reverse()
+* reverse()  
+
 这些方法调用对数组产生的更新能够被 vue 监测到。那么这些变异方法是如何实现的呢？我们通过源码了解一下。
 ```javascript
 // src/observer/array.js

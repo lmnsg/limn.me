@@ -1,5 +1,6 @@
 <div id="post">
   <article>
+    <div class="cover"><img src="<%- config.root %><%- page.cover %>" alt=""></div>
     <header>
       <h1 class="title"><%- page.title %></h1>
       <div class="post-on">
@@ -22,11 +23,13 @@
       <%- page.content %>
     </div>
   </article>
+  <%- partial('_partial/pagination', {page: page}) %>
   <!-- Comments -->
-
-  <%- partial('_partial/comment', {
-  shortname: config.disqus_shortname
-  }) %>
+  <div class="comments">
+    <%- partial('_partial/comment', {
+    shortname: config.disqus_shortname
+    }) %>
+  </div>
 </div>
 
 

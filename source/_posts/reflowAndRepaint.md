@@ -59,11 +59,11 @@ $('.test').addClass('animation')
 
 ### reflow 的几个原因
 
-    * Initial。网页初始化的时候。
-    * Incremental。一些Javascript在操作DOM Tree时。
-    * Resize。其些元件的尺寸变了。
-    * StyleChange。如果CSS的属性发生变化了。
-    * Dirty。几个Incremental的reflow发生在同一个frame的子树上。
+* Initial。网页初始化的时候。
+* Incremental。一些Javascript在操作DOM Tree时。
+* Resize。其些元件的尺寸变了。
+* StyleChange。如果CSS的属性发生变化了。
+* Dirty。几个Incremental的reflow发生在同一个frame的子树上。
 
 ### 减少 reflow/repaint
 上面已经说过，浏览器在进行 reflow/repaint 时十分耗费性能，尤其在低版本浏览器上更是惨不忍睹。在现代浏览器上，以及高性能的电脑上还好，但在一些手机设备上，这个过程就尤其令人头疼了，君不见一些低版本安卓手机浏览器上随便滑动一下都卡的要死。  
