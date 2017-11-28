@@ -4,10 +4,15 @@
   </div>
   <div class="avatar">
     <a href="/about/">
-      <img src="<%- config.logo || theme.logo %>" alt="<%- config.author %>">
+      <img src="<%- config.avatar %>" alt="<%- config.author %>">
     </a>
   </div>
 </header>
 <nav class="navbar">
-  <%- list_categories({ show_count: false }) %>
+  <%
+    var list = site.categories
+    if (page.category) list = site.categories
+    if (page.tag) list = site.tags
+  %>
+  <%- list_categories(list, { show_count: false }) %>
 </nav>

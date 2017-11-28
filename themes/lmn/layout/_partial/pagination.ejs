@@ -1,6 +1,14 @@
 <% if (page.prev || page.next){ %>
 <div class="pager">
-  <a class="prev <%- !page.prev && 'disable' %>" href="<%- config.root %><%- page.prev_link || page.prev && page.prev.path %>">← Prev</a>
-  <a class="next <%- !page.next && 'disable' %>" href="<%- config.root %><%- page.next_link || page.next && page.next.path %>">Next →</a>
+  <% if (page.prev) { %>
+  <a class="prev <%- !page.prev && 'disable' %>" href="<%- config.root %><%- page.prev_link || page.prev.path %>">
+    ← <%- page.prev.title || '上一页' %>
+  </a>
+  <% } %>
+  <% if (page.next) { %>
+  <a class="next <%- !page.next && 'disable' %>" href="<%- config.root %><%- page.next_link || page.next.path %>">
+    <%- page.next.title || '下一页' %> →
+  </a>
+  <% } %>
 </div>
 <% } %>

@@ -1,7 +1,7 @@
 <li class="post">
   <a href="<%- config.root %><%- item.path %>">
     <% if (item.cover) { %>
-    <div class="cover" style="background-image: url(<%- item.cover %>)"></div>
+    <div class="cover" style="background-image: url(<%- config.root + item.cover %>)"></div>
     <% } %>
     <div class="content">
       <h3 class="title">
@@ -12,13 +12,6 @@
       </div>
       <div class="footer">
         <span class="date"><%= item.date.format(config.date_format) %></span>
-        <!--<div class="tags">-->
-        <!--<% item.tags.each(function(tag){ %>-->
-        <!--<a class="tag" href="<%= config.root %>tags/<%= tag.name %>/">-->
-        <!--#<%- tag.name %>-->
-        <!--</a>-->
-        <!--<% }); %>-->
-        <!--</div>-->
       </div>
     </div>
   </a>

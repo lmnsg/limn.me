@@ -9,7 +9,7 @@ description: See and touch the world.
 author: 李梦南
 language: zh-Hans
 timezone:
-
+avatar: /uploads/avatar.jpg
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://lmnsg.github.io/

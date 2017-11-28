@@ -32,6 +32,12 @@ a {
   cursor: alias;
 }
 
+
+.logo {
+  font-size: 24px;
+  font-weight: 400;
+  color: #000;
+}
 // header
 #header {
   display: flex;
@@ -42,9 +48,6 @@ a {
 
   .logo {
     flex: 1;
-    font-size: 24px;
-    font-weight: 400;
-    color: #000;
   }
 
   .avatar {
@@ -76,12 +79,22 @@ a {
       margin-left: 1.5em;
       color: #888;
     }
+
+    .active {
+      color: $color;
+    }
   }
 }
 
 .posts {
-  padding: 0 20px;
+  .year {
+    margin: 16px 0;
+    text-align: center;
+    font-size: 2em;
+  }
+
   .list {
+    padding: 0 20px;
     list-style: none;
   }
 
@@ -126,15 +139,27 @@ a {
 }
 
 .pager {
-  padding: 1em 0;
+  display: flex;
+  padding: 1em 20px;
   text-align: center;
 
   .prev, .next {
-    display: inline-block;
-    margin: 0 1em;
+    display: block;
+    margin: 0 .3em;
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     font-size: 14px;
     color: #666;
-    text-decoration: underline;
+  }
+
+  .prev {
+    text-align: left;
+  }
+
+  .next {
+    text-align: right;
   }
 
   .disable {
@@ -152,6 +177,37 @@ a {
 }
 
 #post {
+  .scroll-header {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: .6em 20px;
+    width: 100%;
+    transform: translate(0, -100%);
+    z-index: 2;
+    background: rgba(255,255,255, .9);
+    transition: transform .3s;
+
+    > * {
+      vertical-align: middle;
+    }
+
+    .progress {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1px;
+      border-bottom: 2px $color solid;
+      transition: width .3s;
+    }
+  }
+
+  .scroll-header.scrolled {
+    display: block;
+    transform: translate(0, 0);
+  }
+
   .title {
     text-align: center;
   }
@@ -213,7 +269,15 @@ a {
       h1, h2, h3, h4, h5, h6 {
         margin-top: 1em;
         margin-bottom: .3em;
+        &:first-child {
+          margin-top: 0;
+        }
       }
+    }
+
+    a {
+      color: $color;
+      text-decoration: underline;
     }
 
     ul {
@@ -275,6 +339,7 @@ a {
     padding: 0 20px;
   }
 }
+
 #no-posts {
   display: none;
 }
