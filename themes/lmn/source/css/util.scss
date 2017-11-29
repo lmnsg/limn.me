@@ -1,0 +1,14 @@
+@mixin clear {
+
+  &::after, &::before {
+    display: table;
+    content: '';
+  }
+
+  &::after {
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    clear: both;
+  }
+}

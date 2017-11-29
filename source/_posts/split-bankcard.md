@@ -5,7 +5,7 @@ tags: javascript
 ---
 
 > 之前项目中用到的一个功能，在这里贴一下自己的实现方式吧
-
+<!-- more -->
 ```html
 <input type="text" id="input">
 ```

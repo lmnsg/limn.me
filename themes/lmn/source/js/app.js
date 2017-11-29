@@ -32,7 +32,7 @@ const app = {
         const top = getScrollTop()
 
         // set progress width
-        $progress.width(top / $(document).height() * $document.width())
+        $progress.width(top / ($(document).height() - $(window).height()) * $document.width())
 
         // animation header
         if (top - prevScroll < 0 && top > contentTop) {

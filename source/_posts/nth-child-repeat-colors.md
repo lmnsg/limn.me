@@ -4,7 +4,7 @@ tags: css
 ---
 
 先说下需求, 需要实现一组 div, 根据一组颜色，按照顺序循环设置背景颜色，大概效果就是:  
-
+<!-- more -->
 > // colors: [红, 黄, 蓝, 绿]
 <div style="display:inline-block;color: red">红</div>
 <div style="display:inline-block;color: yellow">黄</div>

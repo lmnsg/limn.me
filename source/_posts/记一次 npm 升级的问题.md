@@ -4,7 +4,8 @@ date: 2017-05-08
 tags: node
 ---
 
-今天想尝试一下我软的 reactXP, 从 github clone 下来后执行 install 后
+今天想尝试一下我软的 reactXP, 从 github clone 下来后执行 install 后...
+<!-- more -->
 ```bash
 npm ERR! peer dep missing: react@~15.4.1, required by react-native@0.42.3
 npm ERR! peer dep missing: react@~15.3.1, required by react-native-windows@0.33.4

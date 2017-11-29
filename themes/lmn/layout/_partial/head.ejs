@@ -4,8 +4,8 @@
   <%
   var title = [];
   if (page.title) title.push(page.title);
-  if (page.category) title.push(page.category);
-  if (page.tag) title.push(page.tag);
+  if (page.category) title.push('文章分类：' + page.category);
+  if (page.tag) title.push('标签：' + page.tag);
   if (page.archive) {
     if (page.year) title.push(__('archive_b', page.year + (page.month ? '/' + page.month : '')));
     else title.push(__('archive_a'));

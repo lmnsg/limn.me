@@ -6,7 +6,7 @@ categories: javascript
 
 由于项目需要，在客户端生成 xsrf token，在发请求的时候在 header 里发给服务端。
 记得 axios 里好像有这方面的 config option，于是研究了一下。
-
+<!-- more -->
 使用方式如下:
 ```js
 import axios from 'axios'

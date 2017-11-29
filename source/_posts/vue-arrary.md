@@ -5,8 +5,9 @@ tags: js
 cover: covers/cover.jpg
 ---
 
-> 我们都知道，vue 的数据监听是通过 Object.defineProperty 实现的，在 getter 中收集依赖，在 setter 中触发变更，当我们通过 
+> 我们都知道，vue 的数据监听是通过 Object.defineProperty 实现的，在 getter 中收集依赖，在 setter 中触发变更，当我们通过  <!-- more -->
 `this.xx = xyz` 的方式对 data 中定义的某个 key 赋值的时候，vue 便能够监测到这个行为，并响应。而对于数组，vue 在文档中明确的声明只能通过提供的一些变异方法来对数组进行更新，不支持 `this.xx[n] = xyz`，也不支持 `this.xx.length = n` 这样的方式修改数组长度。
+
 
 ## 变异方法
 vue 提供了一些数组的变异方法：
