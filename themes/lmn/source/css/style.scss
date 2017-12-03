@@ -32,6 +32,20 @@ a {
   text-decoration: none;
   color: inherit;
   cursor: alias;
+  transition: color .3s;
+}
+
+a:hover {
+  color: $color;
+}
+
+button {
+  @extend a;
+  border: none;
+  background: none;
+  border-radius: 0;
+  appearance: none;
+  outline: none;
 }
 
 
@@ -42,6 +56,7 @@ a {
 }
 // header
 #header {
+  position: relative;
   display: flex;
   padding: 0 20px;
   height: 54px;
@@ -49,30 +64,85 @@ a {
   align-items: center;
   border-bottom: 1px #eee solid;
 
-  @media (min-width: 1000px) {
-    height: 65px;
+  .logo {
+    display: flex;
+    align-items: center;
   }
 
-  .logo {
-    flex: 1;
+  .switch-nav {
+    position: relative;
+    margin-left: .3em;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    &::after {
+      content: '';
+      display: inline-block;
+      border-top: 8px $color solid;
+      border-left: 5px transparent solid;
+      border-right: 5px transparent solid;
+    }
+  }
+
+  nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    padding: .5em 20px;
+    background: $color2;
+    color: #444;
+    z-index: -1;
+    transform: translate(0, -100%);
+    transition: transform .3s ease-out;
+    a {
+      margin-right: 1em;
+      font-size: 14px;
+    }
+  }
+
+  nav.active {
+    transform: translate(0, 0);
   }
 
   .avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    a, img {
+    flex: 1;
+    text-align: right;
+    img {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    height: 65px;
+    .logo {
+      flex: none;
+    }
+
+    .switch-nav {
+      transform: rotate(-45deg);
+    }
+
+    nav {
       display: block;
-      width: 100%;
-      height: 100%;
+      position: initial;
+      padding: 8px 0 0 .3em;
+      background: none;
+      transform: none;
+      z-index: initial;
     }
   }
 }
 
-.navbar {
+.categories {
   flex: 1;
   padding-top: .8em;
+  color: #888;
+  transition: opacity .3s;
   .category-list {
     text-align: center;
     font-size: 14px;
@@ -80,13 +150,15 @@ a {
     li {
       display: inline-block;
       margin-left: 1.5em;
-      color: #888;
     }
 
     .active {
       color: $color;
     }
   }
+}
+.categories.hidden {
+  opacity: 0;
 }
 
 .posts {

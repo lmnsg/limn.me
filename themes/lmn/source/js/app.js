@@ -1,6 +1,9 @@
-$(function() {
+$(function () {
   app.init()
 })
+const $window = $(window)
+const $nav = $('#nav')
+const $categories = $('.categories')
 
 const app = {
   init() {
@@ -10,6 +13,12 @@ const app = {
   },
   addEventListeners() {
     $('.pager').on('click', '.disable', (e) => e.preventDefault())
+    $('.switch-nav')
+      .on('click', () => {
+        if ($window.width() > 1000) return
+        $nav.toggleClass('active')
+        $categories.toggleClass('hidden')
+      })
   },
   initNav() {
     [].forEach.call(document.querySelectorAll('.navbar .category-list-link'), (el) => {

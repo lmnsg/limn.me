@@ -1,18 +1,24 @@
 <header id="header">
   <div class="logo">
-    <a href="/"><%- config.title %></a>
+    <a href="<%- config.root %>"><%- config.title %></a>
   </div>
+  <button class="switch-nav"></button>
+  <nav id="nav">
+    <% Object.keys(config.nav).forEach((label) => { %>
+    <a href="<%- url_for(config.nav[label]) %>"><%- label %></a>
+    <% }); %>
+  </nav>
   <div class="avatar">
     <a href="/about/">
       <img src="<%- config.avatar %>" alt="<%- config.author %>">
     </a>
   </div>
 </header>
-<nav class="navbar container">
+<div class="categories">
   <%
-    var list = site.categories
-    if (page.category) list = site.categories
-    if (page.tag) list = site.tags
+  var list = site.categories
+  if (page.category) list = site.categories
+  if (page.tag) list = site.tags
   %>
   <%- list_categories(list, { show_count: false }) %>
-</nav>
+</div>

@@ -17,6 +17,9 @@ root: /
 permalink: :year/:title/
 permalink_defaults:
 
+nav:
+  你画我猜: https://nhwc.limn.me
+
 # Directory
 source_dir: source
 public_dir: public
@@ -95,3 +98,7 @@ social:
   zhihu: http://www.zhihu.com/people/lmnn
 
 footer: hello, world!
+
+autoprefixer:
+  browsers:
+    - 'last 2 versions'
