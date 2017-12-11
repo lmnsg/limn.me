@@ -13,13 +13,13 @@
           <span class="label">发布：</span>
           <span class="value"><%= page.date.format(config.date_format) %></span>
         </div>
-        <% if(page.categories.length) { %>
+        <% if(page.categories && page.categories.length) { %>
         <div class="categories">
           <span class="label">分类：</span>
           <%- list_categories(page.categories, { show_count: false }) %>
         </div>
         <% } %>
-        <% if(page.tags.length) { %>
+        <% if(page.categories && page.tags.length) { %>
         <div class="tags">
           <span class="label">标签：</span>
           <%- list_tags(page.tags, { show_count: false }) %>
