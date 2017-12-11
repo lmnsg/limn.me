@@ -92,17 +92,11 @@ button {
     padding: .5em 20px;
     background: $color2;
     color: #444;
-    z-index: -1;
-    transform: translate(0, -100%);
     transition: transform .3s ease-out;
     a {
       margin-right: 1em;
       font-size: 14px;
     }
-  }
-
-  nav.active {
-    transform: translate(0, 0);
   }
 
   .avatar {
@@ -138,11 +132,14 @@ button {
   }
 }
 
-.categories {
+#categories {
   flex: 1;
   padding-top: .8em;
   color: #888;
   transition: opacity .3s;
+  &.hidden {
+    opacity: 0;
+  }
   .category-list {
     text-align: center;
     font-size: 14px;
@@ -156,9 +153,6 @@ button {
       color: $color;
     }
   }
-}
-.categories.hidden {
-  opacity: 0;
 }
 
 .posts {
@@ -296,10 +290,6 @@ button {
     transform: translate(0, 0);
   }
 
-  .title {
-    text-align: center;
-  }
-
   .cover {
     position: relative;
     margin-bottom: 20px;
@@ -310,41 +300,53 @@ button {
     width: 100%;
   }
 
-  .post-on {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-style: italic;
-    font-weight: 300;
-    color: #999;
+  article {
+    padding: 0 20px;
 
-    .date .value {
-      transform: translate(0, -.1em);
-    }
+    header {
+      text-align: center;
+      .title {
+        display: inline-block;
+        text-align: left;
+      }
 
-    div {
-      display: flex;
-      align-items: center;
-      padding: 0 .6em;
-    }
+      .post-on {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-style: italic;
+        font-weight: 300;
+        color: #999;
 
-    ul {
-      margin-left: -.3em;
-    }
+        .date .value {
+          transform: translate(0, -.1em);
+        }
 
-    li {
-      display: inline-block;
-      margin-left: .3em;
-    }
+        div {
+          display: flex;
+          align-items: center;
+          padding: 0 .6em;
+        }
 
-    li:hover {
-      color: $color;
+        ul {
+          margin-left: -.3em;
+        }
+
+        li {
+          display: inline-block;
+          margin-left: .3em;
+        }
+
+        li:hover {
+          color: $color;
+        }
+      }
     }
   }
 
   .content {
-    padding: 20px;
+    margin-top: 20px;
     line-height: 1.8;
     word-wrap: break-word;
     word-break: break-all;
@@ -436,3 +438,4 @@ button {
   display: none;
 }
 @import "mediea";
+@import "addon";

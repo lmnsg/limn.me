@@ -4,7 +4,7 @@
     <span> - <%- page.title %></span>
     <div class="progress"></div>
   </div>
-  <div class="cover"><img src="<%- config.root %><%- page.cover %>" alt=""></div>
+  <div class="cover"><img src="<%- url_for(page.cover) %>" alt=""></div>
   <article>
     <header>
       <h1 class="title"><%- page.title %></h1>
@@ -13,29 +13,28 @@
           <span class="label">发布：</span>
           <span class="value"><%= page.date.format(config.date_format) %></span>
         </div>
+        <% if(page.categories.length) { %>
         <div class="categories">
           <span class="label">分类：</span>
           <%- list_categories(page.categories, { show_count: false }) %>
         </div>
+        <% } %>
+        <% if(page.tags.length) { %>
         <div class="tags">
           <span class="label">标签：</span>
           <%- list_tags(page.tags, { show_count: false }) %>
         </div>
+        <% } %>
       </div>
     </header>
-    <!-- Post Main Content -->
     <div class="content">
       <%- page.content %>
     </div>
   </article>
   <%- partial('_partial/pagination', {page: page}) %>
-  <!-- Comments -->
   <div class="comments">
     <%- partial('_partial/comment', {
     shortname: config.disqus_shortname
     }) %>
   </div>
 </div>
-<%- partial('_partial/footer', {
-shortname: config.disqus_shortname
-}) %>

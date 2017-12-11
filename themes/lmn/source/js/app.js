@@ -3,7 +3,7 @@ $(function () {
 })
 const $window = $(window)
 const $nav = $('#nav')
-const $categories = $('.categories')
+const $categories = $('#categories')
 
 const app = {
   init() {
@@ -16,8 +16,7 @@ const app = {
     $('.switch-nav')
       .on('click', () => {
         if ($window.width() > 1000) return
-        $nav.toggleClass('active')
-        $categories.toggleClass('hidden')
+        $nav.toggle()
       })
   },
   initNav() {

@@ -9,12 +9,12 @@
     <% }); %>
   </nav>
   <div class="avatar">
-    <a href="/about/">
+    <a href="<%- url_for('/about/') %>">
       <img src="<%- config.avatar %>" alt="<%- config.author %>">
     </a>
   </div>
 </header>
-<div class="categories">
+<div id="categories">
   <%
   var list = site.categories
   if (page.category) list = site.categories

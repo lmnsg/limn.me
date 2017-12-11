@@ -1,7 +1,7 @@
 <li class="post">
-  <a href="<%- config.root %><%- item.path %>">
+  <a href="<%- url_for(item.path) %>">
     <% if (item.cover) { %>
-    <div class="cover" style="background-image: url(<%- config.root + item.cover %>)"></div>
+    <div class="cover" style="background-image: url(<%- url_for(item.cover) %>)"></div>
     <% } %>
     <div class="content">
       <h3 class="title">
