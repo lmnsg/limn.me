@@ -1,6 +1,7 @@
 layout: post
 title: js银行卡号每隔4位插入空格
 date: 2017-03-01
+categories: 前端
 tags: javascript
 ---
 

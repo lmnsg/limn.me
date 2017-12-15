@@ -75,7 +75,7 @@ deploy:
   type: rsync
   host: limn.me
   user: root
-  root: /blog
+  root: /project/blog
   port: 22
   delete: true
   verbose: false

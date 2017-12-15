@@ -1,6 +1,7 @@
 layout: post
 title: 记一次 npm 升级的问题
 date: 2017-05-08
+categories: 笔记
 tags: node
 ---
 

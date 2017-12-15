@@ -8,7 +8,22 @@
 $color: #03a87c;
 $color2: #E8F3EC;
 // reset
+html {
+  overflow-y: scroll;
+}
+
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+:root body {
+  position: absolute;
+}
+
 body {
+  width: 100vw;
+  overflow: hidden;
   font: 16px/1.5 Georgia, serif, arial;
   color: #444;
 }
@@ -48,12 +63,12 @@ button {
   outline: none;
 }
 
-
 .logo {
   font-size: 24px;
   font-weight: 400;
   color: #000;
 }
+
 // header
 #header {
   position: relative;
@@ -85,6 +100,7 @@ button {
   }
 
   nav {
+    display: none;
     position: absolute;
     left: 0;
     right: 0;
@@ -268,7 +284,7 @@ button {
     width: 100%;
     transform: translate(0, -100%);
     z-index: 2;
-    background: rgba(255,255,255, .9);
+    background: rgba(255, 255, 255, .9);
     transition: transform .3s;
 
     > * {
@@ -293,11 +309,13 @@ button {
   .cover {
     position: relative;
     margin-bottom: 20px;
-    //padding-top: 60%;
   }
   .cover img {
     display: block;
     width: 100%;
+  }
+  .cover img[src="/"] {
+    display: none;
   }
 
   article {
@@ -348,8 +366,6 @@ button {
   .content {
     margin-top: 20px;
     line-height: 1.8;
-    word-wrap: break-word;
-    word-break: break-all;
 
     > * {
       margin-bottom: .6em;
@@ -393,14 +409,22 @@ button {
 
     code {
       color: $color;
-      overflow-x: auto;
+    }
+
+    table {
+      border-collapse: collapse;
+      border: none;
+      border-spacing: 0;
+    }
+
+    pre {
+      max-width: 100vw;
     }
 
     figure {
       padding: .6em 1em;
-      overflow-x: auto;
       background: $color2;
-
+      overflow-x: auto;
       .gutter {
         display: none;
       }
@@ -437,5 +461,6 @@ button {
 #no-posts {
   display: none;
 }
+
 @import "mediea";
 @import "addon";

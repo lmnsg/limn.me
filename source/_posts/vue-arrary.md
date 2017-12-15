@@ -1,6 +1,7 @@
 layout: post
 title: 监测数组变动的两种实现
-date: 2017-0
+date: 2017-10-15
+categories: 前端
 tags: js
 cover: covers/cover.jpg
 ---

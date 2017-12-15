@@ -7,7 +7,7 @@ const $categories = $('#categories')
 
 const app = {
   init() {
-    this.initNav()
+    this.navHighlight()
     this.addEventListeners()
     this.initPostScollHeader()
   },
@@ -19,8 +19,8 @@ const app = {
         $nav.toggle()
       })
   },
-  initNav() {
-    [].forEach.call(document.querySelectorAll('.navbar .category-list-link'), (el) => {
+  navHighlight() {
+    $categories.find('.category-list-link').each((i, el) => {
       if (el.href === location.href) el.classList.add('active')
     })
   },

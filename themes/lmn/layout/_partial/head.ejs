@@ -57,6 +57,6 @@
 
   <link rel="shortcut icon" href="<%- url_for(config.favicon || theme.favicon) %>">
   <!-- Custom CSS/Sass -->
-  <%- css('css/style') %>
+  <%- css('css/style.css?' + new Date().getTime()) %>
   <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
 </head>
