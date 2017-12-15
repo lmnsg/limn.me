@@ -55,7 +55,7 @@
       <meta property="og:image" content="<%= config.url %><%= config.cover %>"/>
   <% } %>
 
-  <link rel="shortcut icon" href="<%- url_for(config.favicon || theme.favicon) %>">
+  <link rel="shortcut icon" href="<%- url_for('/favicon.png') %>">
   <!-- Custom CSS/Sass -->
   <%- css('css/style.css?' + new Date().getTime()) %>
   <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
