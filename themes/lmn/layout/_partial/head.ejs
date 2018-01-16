@@ -58,5 +58,13 @@
   <link rel="shortcut icon" href="<%- url_for('/favicon.png') %>">
   <!-- Custom CSS/Sass -->
   <%- css('css/style.css?' + new Date().getTime()) %>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112541452-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-112541452-1');
+  </script>
   <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
 </head>
