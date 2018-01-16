@@ -2,10 +2,6 @@ layout: post
 title: 命令行相关操作笔记
 date: 2017-11-24
 categories: 笔记
-tags: 
- - aa 
- - bb
-
 ---
 
 ## linux
